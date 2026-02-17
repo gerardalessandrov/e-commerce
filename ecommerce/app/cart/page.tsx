@@ -25,8 +25,6 @@ export default function CartPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-red-50">
-
-      {/* Header */}
       <div className="bg-gradient-to-r from-orange-600 to-red-600 text-white py-10 px-6 shadow-lg">
         <div className="max-w-4xl mx-auto flex items-center gap-4">
           <button onClick={() => router.back()} className="flex items-center gap-2 text-white/80 hover:text-white transition-colors group">
@@ -45,7 +43,6 @@ export default function CartPage() {
       </div>
 
       <div className="max-w-4xl mx-auto px-4 py-8">
-
         {items.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-24 gap-6">
             <div className="text-8xl animate-bounce">🛒</div>
@@ -55,14 +52,11 @@ export default function CartPage() {
           </div>
         ) : (
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-
-            {/* Lista de productos */}
             <div className="lg:col-span-2 space-y-4">
               <div className="flex items-center justify-between">
                 <h2 className="font-semibold text-gray-700 text-lg">Productos</h2>
                 <button onClick={() => clearCart?.()} className="text-xs text-red-400 hover:text-red-600 underline">Vaciar carrito</button>
               </div>
-
               {items.map((item) => (
                 <div key={item.id} className="bg-white rounded-2xl shadow-sm border border-orange-100 p-4 flex gap-4 hover:shadow-md transition-shadow group">
                   <div className="w-20 h-20 sm:w-24 sm:h-24 bg-orange-100 rounded-xl overflow-hidden flex-shrink-0">
@@ -72,7 +66,6 @@ export default function CartPage() {
                       <div className="w-full h-full flex items-center justify-center text-4xl">🍗</div>
                     )}
                   </div>
-
                   <div className="flex-1 min-w-0">
                     <div className="flex items-start justify-between gap-2">
                       <p className="font-bold text-gray-800 text-sm sm:text-base leading-tight line-clamp-2 flex-1">{item.name}</p>
@@ -81,7 +74,6 @@ export default function CartPage() {
                       </button>
                     </div>
                     <p className="text-orange-500 font-semibold text-sm mt-1">S/ {item.price.toFixed(2)} <span className="text-gray-400 font-normal">c/u</span></p>
-
                     <div className="flex items-center justify-between mt-3">
                       <div className="flex items-center gap-1 bg-orange-50 border border-orange-200 rounded-full px-1 py-1">
                         <button onClick={() => updateQuantity(item.id, item.quantity - 1)} className="w-7 h-7 bg-white shadow-sm rounded-full text-orange-700 font-bold flex items-center justify-center hover:bg-orange-100 transition">−</button>
@@ -98,7 +90,6 @@ export default function CartPage() {
               ))}
             </div>
 
-            {/* Resumen */}
             <div className="lg:col-span-1">
               <div className="bg-white rounded-2xl shadow-sm border border-orange-100 p-5 sticky top-4">
                 <h2 className="font-bold text-gray-800 text-lg mb-4">Resumen del pedido</h2>

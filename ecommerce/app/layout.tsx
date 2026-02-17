@@ -20,43 +20,16 @@ const poppins = Poppins({
 
 export const metadata: Metadata = {
   title: "Bocaditos & Más - Tienda Online",
-  description: "Los mejores bocaditos, pollo broster, alitas y pastelitos de la ciudad. Pedidos online con entrega a domicilio.",
-  keywords: ["bocaditos", "pollo broster", "alitas", "pastelitos", "delivery", "comida peruana"],
+  description: "Los mejores bocaditos, pollo broster, alitas, pizzas, hamburguesas y más.",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="es">
       <body className={`${bebasNeue.variable} ${poppins.variable} font-body antialiased`}>
         <Nav />
-        <main className="min-h-screen">
-          {children}
-        </main>
-        <Toaster 
-          position="bottom-right"
-          toastOptions={{
-            duration: 3000,
-            style: {
-              background: '#363636',
-              color: '#fff',
-              fontFamily: 'Poppins, sans-serif',
-            },
-            success: {
-              style: {
-                background: '#059669',
-              },
-            },
-            error: {
-              style: {
-                background: '#dc2626',
-              },
-            },
-          }}
-        />
+        <main className="min-h-screen">{children}</main>
+        <Toaster position="bottom-right" toastOptions={{ duration: 3000, style: { background: '#363636', color: '#fff' }, success: { style: { background: '#059669' } }, error: { style: { background: '#dc2626' } } }} />
       </body>
     </html>
   );
