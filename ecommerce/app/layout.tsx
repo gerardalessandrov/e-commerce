@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Bebas_Neue, Poppins } from "next/font/google";
 import "./globals.css";
-import Nav from "../components/Nav";
+import Nav from "@/components/Nav";
 import { Toaster } from "react-hot-toast";
 
 const bebasNeue = Bebas_Neue({
