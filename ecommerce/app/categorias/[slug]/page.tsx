@@ -48,6 +48,11 @@ const allProducts = [
   { id: "29", name: "Arroz con Mariscos",         description: "Arroz cremoso con mariscos frescos y salsa americana.",                price: 35.00, image: "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?w=600&h=400&fit=crop",  slug: "arroz-con-mariscos",      category: "a-la-carta" },
   { id: "30", name: "Churrasco a la Parrilla",    description: "Corte de res con papas doradas, ensalada y chimichurri.",              price: 38.00, image: "https://images.pexels.com/photos/1639565/pexels-photo-1639565.jpeg?w=600&h=400&fit=crop",  slug: "churrasco-parrilla",      category: "a-la-carta" },
   { id: "31", name: "Filete de Pescado",          description: "Pescado fresco a la plancha con arroz, ensalada y salsa tártara.",     price: 32.00, image: "https://images.pexels.com/photos/842571/pexels-photo-842571.jpeg?w=600&h=400&fit=crop",    slug: "filete-pescado",          category: "a-la-carta" },
+ //CHEESECAKES
+  { id: "32", name: "Lomo Saltado",               description: "Tiras de lomo fino salteadas con verduras, sillao y ají amarillo.",    price: 28.00, image: "https://images.pexels.com/photos/299347/pexels-photo-299347.jpeg?w=600&h=400&fit=crop",    slug: "cheesecakes",            category: "cheesecakes" },
+  { id: "33", name: "Arroz con Mariscos",         description: "Arroz cremoso con mariscos frescos y salsa americana.",                price: 35.00, image: "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?w=600&h=400&fit=crop",  slug: "cheesecakes",      category: "cheesecakes" },
+  { id: "34", name: "Churrasco a la Parrilla",    description: "Corte de res con papas doradas, ensalada y chimichurri.",              price: 38.00, image: "https://images.pexels.com/photos/1639565/pexels-photo-1639565.jpeg?w=600&h=400&fit=crop",  slug: "cheesecakes",      category: "cheesecakes" },
+  { id: "35", name: "Filete de Pescado",          description: "Pescado fresco a la plancha con arroz, ensalada y salsa tártara.",     price: 32.00, image: "https://images.pexels.com/photos/842571/pexels-photo-842571.jpeg?w=600&h=400&fit=crop",    slug: "cheesecakes",          category: "cheesecakes" },
 ];
 
 const categoryMeta: Record<string, { name: string; icon: string; description: string; color: string }> = {
@@ -61,6 +66,8 @@ const categoryMeta: Record<string, { name: string; icon: string; description: st
   "tortas":        { name: "Tortas",             icon: "🎂", description: "Elaboradas con amor para tus momentos especiales.",               color: "from-teal-600 to-emerald-500"   },
   "bebidas":       { name: "Bebidas",            icon: "🥤", description: "Refrescantes y naturales para acompañar tu pedido.",               color: "from-blue-600 to-cyan-500"      },
   "a-la-carta":    { name: "Platos a la Carta",  icon: "🍽️", description: "Platos completos llenos de sabor. La experiencia completa.",      color: "from-green-600 to-lime-500"     },
+  "cheesecakes":    { name: "Cheesecakes",  icon: "🍰", description: "Deliciosos cheesecakes en torta y en vasito. ",      color: "from-green-600 to-lime-500"     },
+
 };
 
 function ProductCard({ product }: { product: (typeof allProducts)[0] }) {

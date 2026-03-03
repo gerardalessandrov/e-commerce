@@ -100,7 +100,16 @@ const categories = [
     productCount: 4,
     color: "from-green-600 to-lime-500",
     bg: "from-green-50 to-lime-50",
-  },
+  }, {
+    id: "11",
+    name: "Cheesecakes",
+    slug: "cheesecakes",
+    icon: "🍰",
+    description: "Deliciosos cheesecakes en torta y en vasito.  ",
+    productCount: 4,
+    color: "from-green-600 to-lime-500",
+    bg: "from-green-50 to-lime-50",
+  }
 ];
 
 export default function CategoriasPage() {

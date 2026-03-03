@@ -42,8 +42,8 @@ export default function Nav() {
               <div className="absolute -top-1 -right-1 w-3 h-3 bg-yellow-400 rounded-full border-2 border-white animate-pulse-warm" />
             </div>
             <div>
-              <p className="font-display text-xl text-orange-800 leading-none tracking-tight">Bocaditos & Más</p>
-              <p className="text-[10px] text-orange-400 font-medium tracking-widest uppercase leading-none mt-0.5">Sabor que enamora</p>
+              <p className="font-display text-xl text-orange-800 leading-none tracking-tight">Sabor Charitos</p>
+              <p className="text-[10px] text-orange-400 font-medium tracking-widest uppercase leading-none mt-0.5">El Sabor que enamora</p>
             </div>
           </Link>
 

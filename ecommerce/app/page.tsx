@@ -1,77 +1,60 @@
 import Hero from "@/components/Hero";
 import Link from "next/link";
 import ProductCard from "@/components/ProductCard";
+
 // Productos destacados para mostrar en el home
 const featuredProducts = [
   {
     id: "1",
-    name: "Pollo Broster Familiar",
-    description: "Pollo broster crujiente con papas fritas y ensalada",
-    price: 45.00,
-    image: "/images/pollo-broster.jpg",
+    name: "Monstrito",
+    description: "Pollo broster crujiente con papas fritas, ensalada y arroz chaufa",
+    price: 12.00,
+    image: "https://pepestubroaster.com/wp-content/uploads/Pollo-broaster-con-papas-fritas-y-arroz-chaufa.jpg",
     slug: "pollo-broster-familiar",
   },
   {
     id: "4",
     name: "Alitas Broster (12 unid.)",
     description: "Alitas crujientes con salsa BBQ o picante",
-    price: 35.00,
-    image: "/images/alitas.jpg",
+    price: 18.00,
+    image: "https://storage.googleapis.com/guiaspro/delivery-caja-alitas-broaster.webp",
     slug: "alitas-broster-12",
   },
   {
     id: "6",
     name: "Mix de Bocaditos (50 unid.)",
-    description: "Variedad de bocaditos salados para tus eventos",
+    description: "Variedad de bocaditos para tus eventos",
     price: 55.00,
-    image: "/images/bocaditos.jpg",
+    image: "https://static.wooweb.site/media/sites/16/2017/05/p_2_0_3_203-Mix-de-Bocaditos-Dulces.jpg",
     slug: "mix-bocaditos-50",
   },
   {
     id: "3",
     name: "Salchipollo Especial",
     description: "Salchicha con pollo, papas y salsas",
-    price: 18.00,
-    image: "/images/salchipollo.jpg",
+    price: 10.00,
+    image: "https://as2.ftcdn.net/v2/jpg/05/28/82/45/1000_F_528824598_weNjeRww3UEAQt6XsHCk2Doi58CaSBGe.jpg",
     slug: "salchipollo-especial",
   },
 ];
 
 const categories = [
-  {
-    id: "1",
-    name: "Pollo Broster",
-    slug: "pollo-broster",
-    icon: "🍗",
-    description: "Crujiente y jugoso"
-  },
-  {
-    id: "2",
-    name: "Bocaditos",
-    slug: "bocaditos",
-    icon: "🥐",
-    description: "Para tus eventos"
-  },
-  {
-    id: "3",
-    name: "Alitas",
-    slug: "alitas",
-    icon: "🍖",
-    description: "Con diferentes salsas"
-  },
-  {
-    id: "4",
-    name: "Pastelitos",
-    slug: "pastelitos",
-    icon: "🧁",
-    description: "Dulces y salados"
-  },
+  { id: "1",  name: "Pollo Broster", slug: "pollo-broster", icon: "🍗", description: "Crujiente y jugoso"   },
+  { id: "2",  name: "Bocaditos",     slug: "bocaditos",     icon: "🥐", description: "Para tus eventos"     },
+  { id: "3",  name: "Alitas",        slug: "alitas",        icon: "🍖", description: "Con diferentes salsas"},
+  { id: "4",  name: "Pastelitos",    slug: "pastelitos",    icon: "🧁", description: "Dulces y salados"     },
+  { id: "5",  name: "Pizzas",        slug: "pizzas",        icon: "🍕", description: "Masa artesanal"       },
+  { id: "6",  name: "Kekes",         slug: "kekes",         icon: "🎂", description: "Recetas de siempre"   },
+  { id: "7",  name: "Hamburguesas",  slug: "hamburguesas",  icon: "🍔", description: "Pan brioche y más"    },
+  { id: "8",  name: "Tortas",        slug: "tortas",        icon: "🎂", description: "Para celebrar"        },
+  { id: "9",  name: "Bebidas",       slug: "bebidas",       icon: "🥤", description: "Frescas y naturales"  },
+  { id: "10", name: "A la Carta",    slug: "a-la-carta",    icon: "🍽️", description: "Platos completos"    },
 ];
 
 export default function Home() {
   return (
     <>
-      {/* Tu Hero actual */}
+      {/* Hero */}
       <Hero />
 
       {/* Sección de Categorías */}
@@ -187,7 +170,6 @@ export default function Home() {
 
       {/* CTA Final */}
       <section className="bg-gradient-to-r from-orange-600 to-red-600 py-20 relative overflow-hidden">
-        {/* Textura de fondo */}
         <div className="absolute inset-0 opacity-10">
           <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
             <defs>
