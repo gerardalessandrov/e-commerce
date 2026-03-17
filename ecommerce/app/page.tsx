@@ -2,53 +2,157 @@ import Hero from "@/components/Hero";
 import Link from "next/link";
 import ProductCard from "@/components/ProductCard";
 
-// Productos destacados para mostrar en el home
+// ── Productos destacados (imágenes coinciden con productos/page.tsx) ──
 const featuredProducts = [
   {
-    id: "1",
-    name: "Monstrito",
-    description: "Pollo broster crujiente con papas fritas, ensalada y arroz chaufa",
-    price: 12.00,
-    image: "https://pepestubroaster.com/wp-content/uploads/Pollo-broaster-con-papas-fritas-y-arroz-chaufa.jpg",
-    slug: "pollo-broster-familiar",
+    id: "2",
+    name: "Pollo Broster + Chaufa",
+    description:
+      "Pollo broster crujiente con papas fritas, arroz chaufa y ensalada.",
+    price: 12.0,
+    image:
+      "https://pepestubroaster.com/wp-content/uploads/Pollo-broaster-con-papas-fritas-y-arroz-chaufa.jpg",
+    slug: "pollo-broster-chaufa",
   },
   {
-    id: "4",
-    name: "Alitas Broster (12 unid.)",
-    description: "Alitas crujientes con salsa BBQ o picante",
-    price: 18.00,
-    image: "https://storage.googleapis.com/guiaspro/delivery-caja-alitas-broaster.webp",
-    slug: "alitas-broster-12",
+    id: "5",
+    name: "Alitas Broster (6 unid.)",
+    description: "Alitas crujientes con papas fritas.",
+    price: 18.0,
+    image:
+      "https://storage.googleapis.com/guiaspro/delivery-caja-alitas-broaster.webp",
+    slug: "alitas-broster-6",
   },
   {
-    id: "6",
+    id: "9",
     name: "Mix de Bocaditos (50 unid.)",
-    description: "Variedad de bocaditos para tus eventos",
-    price: 55.00,
-    image: "https://static.wooweb.site/media/sites/16/2017/05/p_2_0_3_203-Mix-de-Bocaditos-Dulces.jpg",
+    description: "Variedad de bocaditos para tus eventos.",
+    price: 55.0,
+    image:
+      "https://static.wooweb.site/media/sites/16/2017/05/p_2_0_3_203-Mix-de-Bocaditos-Dulces.jpg",
     slug: "mix-bocaditos-50",
   },
   {
-    id: "3",
-    name: "Salchipollo Especial",
-    description: "Salchicha con pollo, papas y salsas",
-    price: 10.00,
-    image: "https://as2.ftcdn.net/v2/jpg/05/28/82/45/1000_F_528824598_weNjeRww3UEAQt6XsHCk2Doi58CaSBGe.jpg",
-    slug: "salchipollo-especial",
+    id: "45",
+    name: "Cheesecake de Oreo",
+    description: "Deliciosa torta de cheesecake de Oreo.",
+    price: 35.0,
+    image:
+      "https://imgmedia.buenazo.pe/1200x660/buenazo/original/2021/12/10/61b42ee9a7c5372e257c4dee.jpg",
+    slug: "cheesecake-oreo",
   },
 ];
 
+// ── Categorías con imagen del primer producto de cada grupo ──
 const categories = [
-  { id: "1",  name: "Pollo Broster", slug: "pollo-broster", icon: "🍗", description: "Crujiente y jugoso"   },
-  { id: "2",  name: "Bocaditos",     slug: "bocaditos",     icon: "🥐", description: "Para tus eventos"     },
-  { id: "3",  name: "Alitas",        slug: "alitas",        icon: "🍖", description: "Con diferentes salsas"},
-  { id: "4",  name: "Pastelitos",    slug: "pastelitos",    icon: "🧁", description: "Dulces y salados"     },
-  { id: "5",  name: "Pizzas",        slug: "pizzas",        icon: "🍕", description: "Masa artesanal"       },
-  { id: "6",  name: "Kekes",         slug: "kekes",         icon: "🎂", description: "Recetas de siempre"   },
-  { id: "7",  name: "Hamburguesas",  slug: "hamburguesas",  icon: "🍔", description: "Pan brioche y más"    },
-  { id: "8",  name: "Tortas",        slug: "tortas",        icon: "🎂", description: "Para celebrar"        },
-  { id: "9",  name: "Bebidas",       slug: "bebidas",       icon: "🥤", description: "Frescas y naturales"  },
-  { id: "10", name: "A la Carta",    slug: "a-la-carta",    icon: "🍽️", description: "Platos completos"    },
+  {
+    id: "1",
+    name: "Pollo Broster",
+    slug: "pollo-broster",
+    icon: "🍗",
+    description: "Crujiente y jugoso",
+    color: "from-orange-600 to-red-600",
+    image:
+      "https://minichef.b-cdn.net/assets/e8/02/cc/85/5c/b9/receta%20de%20pollo%20broaster.png",
+  },
+  {
+    id: "2",
+    name: "Alitas",
+    slug: "alitas",
+    icon: "🍖",
+    description: "Con diferentes salsas",
+    color: "from-red-600 to-orange-500",
+    image:
+      "https://storage.googleapis.com/guiaspro/delivery-caja-alitas-broaster.webp",
+  },
+  {
+    id: "3",
+    name: "Bocaditos",
+    slug: "bocaditos",
+    icon: "🥐",
+    description: "Para tus eventos",
+    color: "from-yellow-500 to-orange-500",
+    image:
+      "https://static.wooweb.site/media/sites/16/2017/05/p_2_0_3_203-Mix-de-Bocaditos-Dulces.jpg",
+  },
+  {
+    id: "4",
+    name: "Pastelitos",
+    slug: "pastelitos",
+    icon: "🧁",
+    description: "Dulces y salados",
+    color: "from-amber-500 to-yellow-400",
+    image: "https://i.ytimg.com/vi/g0LCH0VovyY/maxresdefault.jpg",
+  },
+  {
+    id: "5",
+    name: "Pizzas",
+    slug: "pizzas",
+    icon: "🍕",
+    description: "Masa artesanal",
+    color: "from-red-600 to-rose-500",
+    image:
+      "https://tse4.mm.bing.net/th/id/OIP.424A1jgy2iF5wv8kXAfHTwHaD4?pid=Api&P=0&h=180",
+  },
+  {
+    id: "6",
+    name: "Kekes",
+    slug: "kekes",
+    icon: "🎂",
+    description: "Recetas de siempre",
+    color: "from-violet-600 to-purple-500",
+    image:
+      "https://statics.exitosanoticias.pe/2020/04/4e101e14f36c66aeb81b71f7523772d1.png",
+  },
+  {
+    id: "7",
+    name: "Hamburguesas",
+    slug: "hamburguesas",
+    icon: "🍔",
+    description: "Pan brioche y más",
+    color: "from-yellow-600 to-orange-500",
+    image:
+      "https://img.hogar.mapfre.es/wp-content/uploads/2018/09/hamburguesa-sencilla.jpg",
+  },
+  {
+    id: "8",
+    name: "Tortas",
+    slug: "tortas",
+    icon: "🎂",
+    description: "Para celebrar",
+    color: "from-teal-600 to-emerald-500",
+    image: "https://i.blogs.es/4d76ad/pastel-tres-leches/1366_2000.jpg",
+  },
+  {
+    id: "9",
+    name: "Bebidas",
+    slug: "bebidas",
+    icon: "🥤",
+    description: "Frescas y naturales",
+    color: "from-blue-600 to-cyan-500",
+    image:
+      "https://tse2.mm.bing.net/th/id/OIP.-OolMh0-iBN61zk-AAVkzAHaHa?pid=Api&P=0&h=180",
+  },
+  {
+    id: "10",
+    name: "A la Carta",
+    slug: "a-la-carta",
+    icon: "🍽️",
+    description: "Platos completos",
+    color: "from-green-600 to-lime-500",
+    image:
+      "https://cocina-casera.com/wp-content/uploads/2017/12/Lomosaltado2.jpg",
+  },
+  {
+    id: "11",
+    name: "Cheesecakes",
+    slug: "cheesecakes",
+    icon: "🍰",
+    description: "En torta y en vasito",
+    color: "from-pink-500 to-rose-400",
+    image:
+      "https://imgmedia.buenazo.pe/1200x660/buenazo/original/2021/12/10/61b42ee9a7c5372e257c4dee.jpg",
+  },
 ];
 
 export default function Home() {
@@ -57,7 +161,7 @@ export default function Home() {
       {/* Hero */}
       <Hero />
 
-      {/* Sección de Categorías */}
+      {/* ── Categorías ── */}
       <section className="py-16 bg-white/50 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -68,29 +172,60 @@ export default function Home() {
               Explora nuestra variedad de productos frescos y deliciosos
             </p>
           </div>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
             {categories.map((category, index) => (
-              <Link 
+              <Link
                 key={category.id}
                 href={`/categorias/${category.slug}`}
-                className="bg-white rounded-xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden group hover:-translate-y-2 p-8 text-center"
-                style={{ animationDelay: `${index * 100}ms` }}
+                className="relative bg-white rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden group hover:-translate-y-2"
+                style={{ animationDelay: `${index * 80}ms` }}
               >
-                <div className="text-6xl mb-4 transform group-hover:scale-110 transition-transform">
-                  {category.icon}
+                {/* Imagen con overlay */}
+                <div className="relative h-36 sm:h-44 overflow-hidden">
+                  <img
+                    src={category.image}
+                    alt={category.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    onError={(e) => {
+                      (e.currentTarget as HTMLImageElement).style.display =
+                        "none";
+                    }}
+                  />
+                  <div
+                    className={`absolute inset-0 bg-gradient-to-t ${category.color} opacity-60 group-hover:opacity-70 transition-opacity`}
+                  />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <span className="text-4xl sm:text-5xl drop-shadow-lg group-hover:scale-110 transition-transform duration-300">
+                      {category.icon}
+                    </span>
+                  </div>
                 </div>
-                <h3 className="font-display text-3xl text-orange-700 mb-2 group-hover:text-orange-800">
-                  {category.name}
-                </h3>
-                <p className="text-gray-600 text-sm mb-4">
-                  {category.description}
-                </p>
-                <div className="inline-flex items-center text-orange-600 font-semibold group-hover:text-orange-700">
-                  Ver productos
-                  <svg className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                  </svg>
+
+                {/* Texto */}
+                <div className="p-3 sm:p-4 text-center">
+                  <h3 className="font-display text-lg sm:text-2xl text-orange-700 mb-1 group-hover:text-orange-800 leading-tight">
+                    {category.name}
+                  </h3>
+                  <p className="text-gray-500 text-xs sm:text-sm mb-3 line-clamp-1">
+                    {category.description}
+                  </p>
+                  <div className="inline-flex items-center text-orange-600 text-xs sm:text-sm font-semibold group-hover:text-orange-700">
+                    Ver productos
+                    <svg
+                      className="w-3.5 h-3.5 ml-1 group-hover:translate-x-1 transition-transform"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M13 7l5 5m0 0l-5 5m5-5H6"
+                      />
+                    </svg>
+                  </div>
                 </div>
               </Link>
             ))}
@@ -98,7 +233,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Productos Destacados */}
+      {/* ── Productos Destacados ── */}
       <section className="py-16 bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
@@ -112,8 +247,8 @@ export default function Home() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {featuredProducts.map((product, index) => (
-              <ProductCard 
-                key={product.id} 
+              <ProductCard
+                key={product.id}
                 product={product}
                 delay={index * 100}
               />
@@ -121,8 +256,8 @@ export default function Home() {
           </div>
 
           <div className="text-center mt-12">
-            <Link 
-              href="/productos" 
+            <Link
+              href="/productos"
               className="inline-block bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 text-white font-semibold py-3 px-8 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 active:scale-95"
             >
               Ver Todos los Productos
@@ -131,65 +266,106 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Sección de Características */}
+      {/* ── Características ── */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center p-8 rounded-2xl bg-gradient-to-br from-orange-50 to-amber-50 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
               <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-orange-500 to-red-500 rounded-full flex items-center justify-center">
-                <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                <svg
+                  className="w-10 h-10 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
                 </svg>
               </div>
-              <h3 className="font-display text-3xl text-orange-700 mb-3">Entrega Rápida</h3>
+              <h3 className="font-display text-3xl text-orange-700 mb-3">
+                Entrega Rápida
+              </h3>
               <p className="text-gray-600">Recibe tu pedido en 30-45 minutos</p>
             </div>
 
             <div className="text-center p-8 rounded-2xl bg-gradient-to-br from-yellow-50 to-orange-50 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
               <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-full flex items-center justify-center">
-                <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                <svg
+                  className="w-10 h-10 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
                 </svg>
               </div>
-              <h3 className="font-display text-3xl text-orange-700 mb-3">Calidad Garantizada</h3>
+              <h3 className="font-display text-3xl text-orange-700 mb-3">
+                Calidad Garantizada
+              </h3>
               <p className="text-gray-600">Ingredientes frescos y de primera</p>
             </div>
 
             <div className="text-center p-8 rounded-2xl bg-gradient-to-br from-red-50 to-orange-50 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
               <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-red-500 to-orange-500 rounded-full flex items-center justify-center">
-                <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                <svg
+                  className="w-10 h-10 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                  />
                 </svg>
               </div>
-              <h3 className="font-display text-3xl text-orange-700 mb-3">Hechos con Amor</h3>
+              <h3 className="font-display text-3xl text-orange-700 mb-3">
+                Hechos con Amor
+              </h3>
               <p className="text-gray-600">Recetas caseras y auténticas</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA Final */}
+      {/* ── CTA Final ── */}
       <section className="bg-gradient-to-r from-orange-600 to-red-600 py-20 relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
             <defs>
-              <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+              <pattern
+                id="grid"
+                width="40"
+                height="40"
+                patternUnits="userSpaceOnUse"
+              >
                 <circle cx="20" cy="20" r="1" fill="white" />
               </pattern>
             </defs>
             <rect width="100%" height="100%" fill="url(#grid)" />
           </svg>
         </div>
-
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <h2 className="font-display text-5xl md:text-6xl text-white mb-6">
             ¿Listo para Ordenar?
           </h2>
           <p className="text-xl text-orange-100 mb-8 max-w-2xl mx-auto">
-            Haz tu pedido ahora y disfruta de nuestros deliciosos productos en la comodidad de tu hogar
+            Haz tu pedido ahora y disfruta de nuestros deliciosos productos en
+            la comodidad de tu hogar
           </p>
-          <Link 
-            href="/productos" 
+          <Link
+            href="/productos"
             className="inline-block bg-white text-orange-700 hover:bg-orange-50 font-bold py-4 px-10 rounded-full text-lg transition-all duration-300 shadow-2xl hover:shadow-xl hover:scale-105 active:scale-95"
           >
             Hacer Pedido Ahora
