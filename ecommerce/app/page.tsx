@@ -1,8 +1,8 @@
 import Hero from "@/components/Hero";
 import Link from "next/link";
 import ProductCard from "@/components/ProductCard";
+import CategoryCard from "@/components/CategoryCard";
 
-// ── Productos destacados (imágenes coinciden con productos/page.tsx) ──
 const featuredProducts = [
   {
     id: "2",
@@ -43,7 +43,6 @@ const featuredProducts = [
   },
 ];
 
-// ── Categorías con imagen del primer producto de cada grupo ──
 const categories = [
   {
     id: "1",
@@ -158,7 +157,6 @@ const categories = [
 export default function Home() {
   return (
     <>
-      {/* Hero */}
       <Hero />
 
       {/* ── Categorías ── */}
@@ -173,61 +171,14 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
-            {categories.map((category, index) => (
-              <Link
+          <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
+            {categories.map((category) => (
+              <div
                 key={category.id}
-                href={`/categorias/${category.slug}`}
-                className="relative bg-white rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden group hover:-translate-y-2"
-                style={{ animationDelay: `${index * 80}ms` }}
+                className="w-[calc(50%-8px)] sm:w-[calc(33.333%-14px)] lg:w-[calc(25%-18px)]"
               >
-                {/* Imagen con overlay */}
-                <div className="relative h-36 sm:h-44 overflow-hidden">
-                  <img
-                    src={category.image}
-                    alt={category.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    onError={(e) => {
-                      (e.currentTarget as HTMLImageElement).style.display =
-                        "none";
-                    }}
-                  />
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-t ${category.color} opacity-60 group-hover:opacity-70 transition-opacity`}
-                  />
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="text-4xl sm:text-5xl drop-shadow-lg group-hover:scale-110 transition-transform duration-300">
-                      {category.icon}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Texto */}
-                <div className="p-3 sm:p-4 text-center">
-                  <h3 className="font-display text-lg sm:text-2xl text-orange-700 mb-1 group-hover:text-orange-800 leading-tight">
-                    {category.name}
-                  </h3>
-                  <p className="text-gray-500 text-xs sm:text-sm mb-3 line-clamp-1">
-                    {category.description}
-                  </p>
-                  <div className="inline-flex items-center text-orange-600 text-xs sm:text-sm font-semibold group-hover:text-orange-700">
-                    Ver productos
-                    <svg
-                      className="w-3.5 h-3.5 ml-1 group-hover:translate-x-1 transition-transform"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M13 7l5 5m0 0l-5 5m5-5H6"
-                      />
-                    </svg>
-                  </div>
-                </div>
-              </Link>
+                <CategoryCard {...category} />
+              </div>
             ))}
           </div>
         </div>
@@ -270,71 +221,72 @@ export default function Home() {
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center p-8 rounded-2xl bg-gradient-to-br from-orange-50 to-amber-50 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
-              <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-orange-500 to-red-500 rounded-full flex items-center justify-center">
-                <svg
-                  className="w-10 h-10 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
+            {[
+              {
+                icon: (
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth={2}
                     d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
                   />
-                </svg>
-              </div>
-              <h3 className="font-display text-3xl text-orange-700 mb-3">
-                Entrega Rápida
-              </h3>
-              <p className="text-gray-600">Recibe tu pedido en 30-45 minutos</p>
-            </div>
-
-            <div className="text-center p-8 rounded-2xl bg-gradient-to-br from-yellow-50 to-orange-50 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
-              <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-full flex items-center justify-center">
-                <svg
-                  className="w-10 h-10 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
+                ),
+                color: "from-orange-500 to-red-500",
+                bg: "from-orange-50 to-amber-50",
+                title: "Entrega Rápida",
+                desc: "Recibe tu pedido en 30-45 minutos",
+              },
+              {
+                icon: (
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth={2}
                     d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
                   />
-                </svg>
-              </div>
-              <h3 className="font-display text-3xl text-orange-700 mb-3">
-                Calidad Garantizada
-              </h3>
-              <p className="text-gray-600">Ingredientes frescos y de primera</p>
-            </div>
-
-            <div className="text-center p-8 rounded-2xl bg-gradient-to-br from-red-50 to-orange-50 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
-              <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-red-500 to-orange-500 rounded-full flex items-center justify-center">
-                <svg
-                  className="w-10 h-10 text-white"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
+                ),
+                color: "from-yellow-500 to-orange-500",
+                bg: "from-yellow-50 to-orange-50",
+                title: "Calidad Garantizada",
+                desc: "Ingredientes frescos y de primera",
+              },
+              {
+                icon: (
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth={2}
                     d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
                   />
-                </svg>
+                ),
+                color: "from-red-500 to-orange-500",
+                bg: "from-red-50 to-orange-50",
+                title: "Hechos con Amor",
+                desc: "Recetas caseras y auténticas",
+              },
+            ].map((item) => (
+              <div
+                key={item.title}
+                className={`text-center p-8 rounded-2xl bg-gradient-to-br ${item.bg} shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2`}
+              >
+                <div
+                  className={`w-20 h-20 mx-auto mb-6 bg-gradient-to-br ${item.color} rounded-full flex items-center justify-center`}
+                >
+                  <svg
+                    className="w-10 h-10 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    {item.icon}
+                  </svg>
+                </div>
+                <h3 className="font-display text-3xl text-orange-700 mb-3">
+                  {item.title}
+                </h3>
+                <p className="text-gray-600">{item.desc}</p>
               </div>
-              <h3 className="font-display text-3xl text-orange-700 mb-3">
-                Hechos con Amor
-              </h3>
-              <p className="text-gray-600">Recetas caseras y auténticas</p>
-            </div>
+            ))}
           </div>
         </div>
       </section>
