@@ -4,7 +4,6 @@ import { useState } from "react";
 import Link from "next/link";
 import { useCartStore } from "@/lib/store/cartStore";
 import toast from "react-hot-toast";
-import Modal from "@/components/Modal";
 
 export const allProducts = [
   // ── POLLO BROSTER ──────────────────────────────────────
@@ -592,20 +591,6 @@ const filters = [
 const FALLBACK =
   "https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop";
 
-const catLabel: Record<string, string> = {
-  "pollo-broster": "Pollo",
-  alitas: "Alitas",
-  bocaditos: "Bocaditos",
-  pastelitos: "Pastelitos",
-  pizzas: "Pizza",
-  kekes: "Keke",
-  hamburguesas: "Burger",
-  tortas: "Torta",
-  bebidas: "Bebida",
-  "a-la-carta": "Carta",
-  cheesecakes: "Cheesecake",
-};
-
 function ProductCard({ p }: { p: (typeof allProducts)[0] }) {
   const addItem = useCartStore((s) => s.addItem);
   const [added, setAdded] = useState(false);
@@ -626,9 +611,8 @@ function ProductCard({ p }: { p: (typeof allProducts)[0] }) {
   };
 
   return (
-    /* ── CARD: horizontal en móvil, vertical (original) en sm+ ── */
     <div className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden flex flex-row sm:flex-col group">
-      {/* IMAGEN */}
+      {/* IMAGEN — sin badge de categoría */}
       <Link
         href={`/productos/${p.slug}`}
         className="flex-shrink-0 w-28 sm:w-auto"
@@ -642,9 +626,6 @@ function ProductCard({ p }: { p: (typeof allProducts)[0] }) {
               (e.target as HTMLImageElement).src = FALLBACK;
             }}
           />
-          <span className="absolute top-3 left-3 bg-white/90 backdrop-blur text-orange-700 text-xs font-bold px-2 py-1 rounded-full shadow">
-            {p.emoji} {catLabel[p.category] ?? p.category}
-          </span>
         </div>
       </Link>
 
@@ -663,6 +644,7 @@ function ProductCard({ p }: { p: (typeof allProducts)[0] }) {
 
         {/* Precio + botón */}
         <div className="flex items-center gap-3 mt-auto">
+          {/* Móvil */}
           <div className="sm:hidden">
             <p className="text-[10px] text-gray-400 leading-none mb-0.5">
               Precio
@@ -671,7 +653,7 @@ function ProductCard({ p }: { p: (typeof allProducts)[0] }) {
               S/ {p.price.toFixed(2)}
             </p>
           </div>
-          {/* Desktop: precio + botón en fila como el original */}
+          {/* Desktop */}
           <div className="hidden sm:flex items-center gap-3 w-full">
             <div>
               <p className="text-xs text-gray-400 leading-none mb-0.5">
@@ -719,7 +701,7 @@ export default function ProductosPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50">
-      {/* ── HEADER ── */}
+      {/* HEADER */}
       <div className="bg-gradient-to-r from-orange-600 to-red-600 py-10 sm:py-16 px-4">
         <div className="max-w-7xl mx-auto text-center">
           <h1 className="font-display text-4xl sm:text-5xl md:text-6xl text-white mb-2">
@@ -731,7 +713,7 @@ export default function ProductosPage() {
         </div>
       </div>
 
-      {/* ── FILTROS: posición normal, scrollea con la página ── */}
+      {/* FILTROS */}
       <div className="bg-white/95 shadow-sm border-b border-orange-100">
         <div className="flex flex-wrap gap-2 justify-center max-w-7xl mx-auto px-3 py-3">
           {filters.map((f) => (
@@ -750,7 +732,7 @@ export default function ProductosPage() {
         </div>
       </div>
 
-      {/* ── CONTADOR ── */}
+      {/* CONTADOR */}
       <div className="max-w-7xl mx-auto px-4 pt-4 pb-1">
         <p className="text-gray-500 text-sm">
           Mostrando{" "}
@@ -768,12 +750,7 @@ export default function ProductosPage() {
         </p>
       </div>
 
-      {/* ── GRID ──
-          Móvil: 1 columna de tarjetas horizontales
-          sm:   2 columnas de tarjetas verticales
-          lg:   3 columnas
-          xl:   4 columnas
-      ── */}
+      {/* GRID */}
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-4 sm:py-6">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-5">
           {filtered.map((product) => (
